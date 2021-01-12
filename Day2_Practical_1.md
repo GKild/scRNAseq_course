@@ -32,10 +32,12 @@ Raw Data(10x)             | ArrayExpress EMBL-EBI [E-MTAB-6701](https://www.ebi.
 Raw Data(SS2)             | ArrayExpress EMBL-EBI [E-MTAB-6678](https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-6678)
 
 ## 1) SmartSeq2
+
 Libraries were sequenced aiming at an average depth of 1 million reads/cell, on an Illumina HiSeq 2000 with v4 chemistry (**paired-end 75-bp reads**). Libraries were made using Nextera XT	RNA was extracted, cDNA created and amplified, as part of the smart-seq 2 protocol.
 
 ### Customised Pipeline running with aligner Hisat2 (Similar as bulk RNASeq)
-* a) Build index<br>
+
+ **a) Build index**<br>
 You need to build hisat2 reference for alignment if you did not have. There are different indices to build depends on your align requirements, eg. HFM index, HGFM index with SNPs or transcripts or both. Here we use HFM index. You do not need to build index as we already saved them in the practical.
 
                cd ./Practical_day2
@@ -46,7 +48,7 @@ The following files will be generated: <br>
             GRCh38.1.ht2, GRCh38.2.ht2, GRCh38.3.ht2, GRCh38.4.ht2,
             GRCh38.5.ht2, GRCh38.6.ht2, GRCh38.7.ht2, GRCh38.8.ht2.
 
-* b) Check fastq file, quality contorl (fastQC+MultiQC) Align <br>
+ **b) Check fastq file, quality contorl (fastQC+MultiQC) Align** <br>
 
                cd ./Practical_day2/Data/SS2Data
                zcat ./Fastq/23728_8_119.1.fastq.gz | head
@@ -61,14 +63,15 @@ We will skip the QC check step in this practical for SmartSeq2 data. <br>
                       -S ./Fastq/23728_8_119.sam
 
 <IMG SRC="Screenshot/SS2_hisat2_align.png" width=800px>
-* c) Data sorting <br>
+
+ **c) Data sorting** <br>
 
                samtools view -bS ./Fastq/23728_8_119.sam > ./Fastq/23728_8_119_unsorted.bam
                samtools sort -o ./Fastq/23728_8_119_sorted.bam ./Fastq/23728_8_119_unsorted.bam
                rm ./Fastq/23728_8_119.sam
 
-* d) Reads counts and extract the counts columns <br>
-    -[1] One sample
+ **d) Reads counts and extract the counts columns** <br>
+    -[1] **One sample**
 
                featureCounts -p -a ../refdata-gex-GRCh38-2020-A/genes/genes.gtf \
                              -t exon -g gene_id \
@@ -77,7 +80,10 @@ We will skip the QC check step in this practical for SmartSeq2 data. <br>
                cut -f1,7 ./Fastq/23728_8_119_featureCounts.txt > ./Fastq/23728_8_119_featureCounts_mat.txt
 
  <IMG SRC="Screenshot/SS2_Subread.png" width=800px>
-    -[2] multiple samples
+<br>
+<br>
+
+  -[2] **multiple samples**
 
               featureCounts -p -a ../refdata-gex-GRCh38-2020-A/genes/genes.gtf \
                             -t exon -g gene_id \
@@ -90,13 +96,14 @@ We will skip the QC check step in this practical for SmartSeq2 data. <br>
                head ./Fastq/SS2_EM.txt
 
 <IMG SRC="Screenshot/SS2_featureC.png" width=900px>
+<br>
+<br>
 
-
-* f) Use R or linux command to merge the featureCounts output and generate your own gene/cell count matrix.
+ **e) Use R or linux** command to merge the featureCounts output and generate your own gene/cell count matrix.
 <IMG SRC="Screenshot/SS2_ReadEM_R.png" width=800px>
 
 
-#### Alongside thinking...
+### Alongside thinking...
 * Alignment can use STAR, Kallisto, Salmon et al;
 * Bash script for multiple SS2 data;
 * QC checking, MultiQC.
@@ -113,46 +120,62 @@ The libraries were sequenced on an Illumina HiSeq 4000 with v4 chemistry (*Paire
 | FCA7167221                |        1171        |
 | FCA7167222                |        1764        |
 
-Due to the memory problem for running **cellranger**, we applied the subsets of the original fastq files using "seqtk", randomly selected 10000 sequence from the original ones. The subsets names as FCA1, FCA2 and FCA3.  
+Due to the memory problem for running **cellranger**, we will not run our cellranger analysis during our practical. However, we will have a look at different examples of cellranger output report to understand initial QC.
 
-### Data Processing ###
-Raw sequencing files are run through the cellranger pipeline (v5.0.0) with the following two main functions **cellranger count** and **cellranger aggr** as we mentioned in the lecture. <br> We only run sample *FCA7167219* using **cellranger count**. For the **cellranger aggr** practical, we will use the output already done to perform the analysis to save the time and memory. <br>
+### Cellranger pipeline
 
-### Method1: cellranger pipeline
-
-#### cellranger count ####
+#### cellranger count (**Don't run**)
 
            cd ./Practical_day2/Data/10xData
-           cellranger count --id=FCA1_cellout \
+           cellranger count --id=FCA7167219_cellout \
                             --transcriptome= ../refdata-gex-GRCh38-2020-A \
-                            --fastqs=FCA1_fastq \
-                            --sample=FCA1 \
+                            --fastqs=FCA7167219_fastq \
+                            --sample=FCA7167219 \
                             --expect-cells=1000 \
                             --localcores=8 \
                             --localmem=64
 
 <IMG SRC="Screenshot/cellranger_dir_tree.png" width=400px>
 
+We will use three files in the directory **filtered_feature_bc_matrix/**, which contains only detected cellular barcodes. <br>
+
+              barcodes.tsv.gz           features.tsv.gz              matrix.mtx.gz
+
+To view these gz files, you can use the following barcodes
+
+              zcat barcodes.tsv.gz | head
+or
+
+              gzip -cd barcodes.tsv.gz | head
+
+<IMG SRC="Screenshot/cellranger_barcode.png" width=800px>
+<IMG SRC="Screenshot/cellranger_feature.png" width=800px>
+
 #### Summary report web_summary.html
 
 <IMG SRC="Screenshot/cellranger_FCA1_1.png" width=800px>
 <IMG SRC="Screenshot/cellranger_FCA1_2.png" width=800px>
 
-#### Alongside thinking...
+
+### Alongside thinking by checking cellranger webpage...
+* Go through the output
+
+              /home/training/Practical_day2/10xData/FCA123_web_summary.html
+
 * Rename the *fastq* files as *FCA1_S1_L001_R1_001.fq.gz* or *FCA1_R1.fastq.gz*, what happens?;
 * Path/Directory of your reference saved;
 * Check the --id and --sample options;
 * Expect number of cells;
 * Settings of your running terminal machine;
 * Check the folder filtered_feature_bc_matrix/features.tsv.gz file top 8 lines using linux commands;
-                  ?? features.tsv.gz | ??
-* Go through the output
-             FCA1_cellout/outs/web_summary.html
+                  ?? features.tsv.gz | ??;
+* What is the Barcodes Plot reasonable cut-off threshold?
+
+
 
 #### cellranger aggr (**Don't run**)
-
 *cellranger aggr is not designed for combining multiple sequencing runs of the same GEM Well. For that, you should pass a list of FASTQ files from multiple sequencing runs of the same GEM well to the --fastqs argument of cellranger count.*
-<IMG SRC="Screenshot/cellranger_aggr_csv.png" width=800px>
+<IMG SRC="Screenshot/cellranger_aggr_csv.png" width=400px>
 
               cellranger aggr --id=FCA123 \
                               --csv=FCA123_libraries.csv \
@@ -163,12 +186,14 @@ Raw sequencing files are run through the cellranger pipeline (v5.0.0) with the f
 <IMG SRC="Screenshot/cellranger_3.png" width=800px>
 
 
-#### Alongside thinking...
+### Alongside thinking...
 
 * Using R to generate your csv file;
 * Check the dimension of the count matrix;
 * if we change the --normalize from "none" to "mapped", what is the difference for the final matrix?
-* R seurat package: **Read10x** to call the matrix "outs/count/filtered_feature_bc_matrix/"
+* R Matrix package or seurat package (**Read10x** to get the expression matrix), which one you prefer?
+<IMG SRC="Screenshot/cellranger_Rmat.png" width=800px>
+
 
 ## HPC pipeline information: NextFlow
 
@@ -212,7 +237,14 @@ eg. (default aligner is alevin)
                                              -with-report 10x_report.html &> 10x_nextflow_command.resume.log &
 <IMG SRC="Screenshot/nf_scrnaseq.png" width=800px>
 
-
+### Highlights for nextflow (Please have a go after this course)
+ * Reproducible; (-resume,  -r options)
+ * Full-report of the usage of CPU, memory, time (report.html);
+ * Full-report of all the libraries initial QC (multiqc.html);
+ * Full summary log file for running (nextflow_command.log);
+ * HPC efficiency.
+ * smartseq2 pipeline is also include TCR and BCR analysis.
+ * ....
 
 | Resource              | Version         |
 | --------------------- | --------------- |
