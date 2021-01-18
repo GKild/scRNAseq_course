@@ -299,12 +299,14 @@ eg. (default aligner is alevin)
 Try nf-core/scrnaseq using a small study, and go through your multiQC report. Explore different aligner tools built-in nf-core/scrnaseq and cehck the Expression matrix difference.
 
 ## Useful References papers or analysis tools links
-* “Analysis of single cell RNA-seq data” by Sanger Hemberg group: [Hemberg](https://scrnaseq-course.cog.sanger.ac.uk/website/index.html)
+* “Analysis of single cell RNA-seq data” by Sanger Hemberg group: [scRNASeq](https://scrnaseq-course.cog.sanger.ac.uk/website/index.html)
 * [nf-core/smartseq2](https://github.com/nf-core/smartseq2)
 * [nf-core/scrnaseq](https://github.com/nf-core/scrnaseq)
 * [cam-hpc-slurm](https://docs.hpc.cam.ac.uk/hpc/user-guide/)
 * [snakemake-scrnaseq](https://github.com/snakemake-workflows/single-cell-rna-seq)
 * [doprSeqPipe](https://hoohm.github.io/dropSeqPipe/)
+* [Satija-cellnumber](https://satijalab.org/howmanycells)
+* Fangda Song et al, Nature Communications volume 11, Article number: 3274 (2020)
 
 
 
