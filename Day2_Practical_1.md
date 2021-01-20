@@ -304,7 +304,7 @@ eg. (default aligner is alevin)
 <IMG SRC="Screenshot/nf_ss2_test.png" width=800px>
 * Take Home Run if you had HPC singularity container.
 
-           nextflow run nf-core/scrnaseq -resume -r 1.0.0 -profile test,Singularity
+           nextflow run nf-core/scrnaseq -resume -r 1.0.0 -profile test,singularity
 
 <IMG SRC="Screenshot/nf_scr_test.png" width=800px>
 
