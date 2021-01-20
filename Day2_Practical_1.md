@@ -296,7 +296,7 @@ eg. (default aligner is alevin)
 | nf-core/smartseq2     | 	v1.0dev       |
 | nf-core/scrnaseq      | 	v1.0.0        |
 
-### Exercise 3 :
+### Exercise 4 :
 * Run nf-core/smartseq2 test, check the output results folder.
 
           nextflow run nf-core/smartseq2 -resume -r dev -profile test,docker
