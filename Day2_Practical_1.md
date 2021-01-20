@@ -213,7 +213,8 @@ or
 <IMG SRC="Screenshot/cellranger_2.png" width=800px>
 <IMG SRC="Screenshot/cellranger_3.png" width=800px>
 
-### Exercise 2: Basic QC with web_sumamry.html file
+### Exercise 2: Basic QC with web_sumamry.html file (Practical_day2/Cellranger_Reports)
+General Question: which web_summary.html files are proper? If they are not good, why?
 * What is the analysis count pipeline running for?
   * Gene expression
   * Targeted Gene expression (GEX)
@@ -294,6 +295,19 @@ eg. (default aligner is alevin)
 | Nextflow              | 	v20.10.0      |
 | nf-core/smartseq2     | 	v1.0dev       |
 | nf-core/scrnaseq      | 	v1.0.0        |
+
+### Exercise 3 :
+* Run nf-core/smartseq2 test, check the output results folder.
+
+          nextflow run nf-core/smartseq2 -resume -r dev -profile test,docker
+
+<IMG SRC="Screenshot/nf_ss2_test.png" width=800px>
+* Take Home Run if you had HPC singularity container.
+
+           nextflow run nf-core/scrnaseq -resume -r 1.0.0 -profile test,Singularity
+
+<IMG SRC="Screenshot/nf_scr_test.png" width=800px>
+
 
 ### Challenge 3, Homework:
 Try nf-core/scrnaseq using a small study, and go through your multiQC report. Explore different aligner tools built-in nf-core/scrnaseq and cehck the Expression matrix difference.
