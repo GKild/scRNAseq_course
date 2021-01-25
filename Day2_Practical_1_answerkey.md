@@ -107,7 +107,9 @@ My output for Hisat2/STAR with this gene counts are
 
 ### Additional Questions answers:
 * Does the coverage variation affect your data? <br>
- Yes, high coverage will have a better clustering for your data.
+ Yes, high coverage will have a better clustering for your data. <br>
+
+<IMG SRC="Screenshot/Coverage_effects.png" width=800px> <br>
 
 * If your cells vary, does the 'reads per cell' quantity make sense? <br>
 The summary or means/median per cell will mislead when cells vary.
@@ -122,7 +124,7 @@ You have two publications of 10x data from the same tissue, but using different 
 
 "reanalyse" could be applied for target subset of data. <br>
 
-**Remember**: cellranger different version perform the output differently!!
+**Remember**: different versions of Cellrangerhave reported raw and deduplicated counts –they can be *very* different!!
 
 ## Exercise 3: Count matrix
 * Check the dimension of the count matrix;
