@@ -90,7 +90,7 @@ The following files will be generated: <br>
 2. **Check fastq file** <br>
 ```shell
 cd ./Practical_day2/SS2Data
-cat ./Fastq/23728_8_119.1.fastq.gz | head
+zcat ./Fastq/23728_8_119.1.fastq.gz | head
 ```
 <IMG SRC="Screenshot/SS2_fastq.png" width=800px> <br>
 
