@@ -68,7 +68,10 @@ My output for Hisat2/STAR with this gene counts are
         STAR        ENSG00000157873   19                      160                     309
 
 ## Exercise 2: (The web summary files are credited by Simon Andrews-Babaraham 10x cellranger teaching materials)
-* [isugenomics](web_summary_isugenomics.html) *Low Fraction Reads in Cells* <br>
+<br>
+**Note** The link below for each report you may not view directly in your browser. You will see a txt file format for html! Please go to the folder CellRangerReports either in Github or the VM machine /home/Training/Practical_day2/10xData/CellRangerReports/ to open the html files.
+
+* [isugenomics](CellRangerReports/web_summary_isugenomics.html) *Low Fraction Reads in Cells* <br>
   **Answer:** <br> <br>
     1) High ambient RNA (background) in your sample. This ambient RNA comes from lysed/dead cells in your sample. Cell Ranger is able to confidently align the reads from ambient RNA to the transcriptome but the reads are not associated with a valid cell-containing GEM.
 
@@ -77,16 +80,17 @@ My output for Hisat2/STAR with this gene counts are
     Cell Ranger's algorithm for partitioning barcodes as cells versus background is based on the idea that barcodes for cells should have distinctly more transcript counts associated with them than the background barcodes. This can be visualized by the ranked barcode plot in the web_summary.html file. More details on the cell filtering algorithm can be found here.
 
     If you suspect that Cell Ranger's cell calling algorithm did not work well for your sample, please re-run cellranger count again or cellranger reanalyze with --force-cells option to call the expected number of cells.
-* [ucdavis](web_summary_ucdavis.html)
+* [ucdavis](CellRangerReports/web_summary_ucdavis.html) <br>
+The barcode rank plot did not show a clearly drop to make the threshold for the cut-off of the cells. It may because there are a few cells there with low quality, or the tissue is taken from different experimental design, eg. cancer cells.
 
-* [babraham](web_summary_babraham.html) *low fraction reads in cells* & *low number of cells detected* <br>
+* [babraham](CellRangerReports/web_summary_babraham.html) *low fraction reads in cells* & *low number of cells detected* <br>
   **Answer** <br>
-  Similar possibilities as [isugenomics](web_summary_isugenomics.html).
+  Similar possibilities as [isugenomics](CellRangerReport/web_summary_isugenomics.html).
 
-* [GSM2671416_P4](SM2671416_P4_web_summary.html)
+* [GSM2671416_P4](CellRangerReports/GSM2671416_P4_web_summary.html)
   Useful link for this data set web Summary
   [4k_PBMC_HealthDornor](https://gtpb.github.io/ADER19F/pages/L09)
-* [ncourse](ncourse_web_summary.html) *Low Fraction Reads Confidently Mapped To Transcriptome* <br>
+* [test](CellRangerReports/test_web_summary.html) *Low Fraction Reads Confidently Mapped To Transcriptome* <br>
 
         47.5% mapping to genome & 28.2% Reads Mapped Confidently to Transcriptome
 
