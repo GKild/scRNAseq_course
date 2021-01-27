@@ -7,7 +7,6 @@ output: html_document
 - work with interactive tools to get familiar with representations of single-cell RNA-seq data
 - touch on biological interpretation via gene set enrichment analysis and cell-cell interaction analysis
 
-
 ## Exercise 1: Publicly available single-cell portals - Exploring covid19cellatlas
 Authors can create a browseable portal for your single cell analysis. For example, a cellxgene format can be used: https://chanzuckerberg.github.io/cellxgene/
 
@@ -18,18 +17,16 @@ We will explore one such dataset in a portal that combines a variety of datasets
 4. Select **Deprez et al "Total airway"** cell portal for the Respiratory System and open **Interactive viewer**.
 
 ### Task 1: Explore the covid19 atlas dataset
-Color by cell types, Donor, Location, Method and other metadata. Explain the biases and comment on the batch effect(s).
-
+- Color by cell types, Donor, Location, Method and other metadata. Explain the biases and comment on the batch effect(s).
 
 ### Task 2: Search for genes
 5. Search for the genes **ACE2** (the receptor for cellular entry of the Coronavirus) and **TMPRSS2** (a protease needed for entry). 
 6. Select double-positive cells.
-Explore which cell types the two genes are found in. What does it tell you? Why are there so few cells? Try again with using only ACE2 for selection.
+ - Explore which cell types the two genes are found in. What does it tell you? Why are there so few cells? Try again with using only ACE2 for selection.
 
 ### Task 3: Differential expression 
 7. Perform differential expression analysis between Multiciliated (trachea) and Multiciliated N (nasal) cell types. 
  - What does this tell you?
-
 
 ## Exercise 2: Publicly available single-cell portals - Exploring Single Cell Expression Atlas by EMBL-EBI.
 This is an automated pipeline outcome where analysis is standardised on all submitted data.
@@ -48,9 +45,6 @@ This is an automated pipeline outcome where analysis is standardised on all subm
 
 ## Conclusion
 We looked at two different ways of sharing your data. One is tailored approach by the author in choosing cells, thresholds, batch correction etc manually, while the other uses a common approach for all datasets. Based on these two samples, can you comment on the benefits/shortcomings of both approaches?
-
-
-####  Break ####
 
 
 ## Exercise 3: Exploring the practical dataset further
