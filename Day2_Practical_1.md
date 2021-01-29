@@ -280,16 +280,16 @@ You have two publications of 10x data from the same tissue, but using different 
 
 ```R
 library(Seurat)
-FCA123.data <- Read10X(data.dir = /opt/FCA123_cellout/filtered_feature_bac_matrix/")
+FCA7167219.data <- Read10X(data.dir = "/home/training/Practical_day2/10xData/FCA7167219_cellout")
 
 library(Matrix)
-matrix_dir = "/opt/FCA123_cellout/filtered_feature_bc_matrix/"
+matrix_dir = "/home/training/Practical_day2/10xData/FCA7167219_cellout/"
 barcode.path <- paste0(matrix_dir, "barcodes.tsv.gz")
 features.path <- paste0(matrix_dir, "features.tsv.gz")
 matrix.path <- paste0(matrix_dir, "matrix.mtx.gz")
 mat <- readMM(file = matrix.path)
 feature.names = read.delim(features.path, header = FALSE, stringsAsFactors = FALSE)
-barcode.names = read.delim(barcode.path, header = FALSE, stringAsFactors = FALSE)
+barcode.names = read.delim(barcode.path, header = FALSE, stringsAsFactors = FALSE)
 colnames(mat) = barcode.names$V1
 rownames(mat) = feature.names$V1
 ```
