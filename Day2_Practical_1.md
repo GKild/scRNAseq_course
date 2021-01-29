@@ -170,7 +170,7 @@ head ./Fastq/SS2_EM.txt
 Finally, you need to import your expression matrix (genes x cells) into R.
 
 ```R
-dat <- read.delim("SS2_EM.txt", skip=1)
+dat <- read.delim("Practical_day2/SS2Data/Fastq/SS2_EM.txt", skip=1)
 head(dat)
 ```
 
