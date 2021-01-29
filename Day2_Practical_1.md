@@ -229,7 +229,10 @@ gzip -cd barcodes.tsv.gz | head
 <br>
 
 
-8. **View the summary report for FCA7167219: Practical_day2/10xData/FCA7167219_web_summary.html** <br> <br>
+8. **View the summary reports**
+- FCA123: Practical_day2/10xData/FCA123_web_summary.html <br>
+- FCA7167219: Practical_day2/10xData/FCA7167219_summary.html <br>
+
 
 <IMG SRC="Screenshot/cellranger_FCA1_1.png" width=800px>
 <IMG SRC="Screenshot/cellranger_FCA1_2.png" width=800px>
