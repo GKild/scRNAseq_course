@@ -278,6 +278,7 @@ You have two publications of 10x data from the same tissue, but using different 
 * Check the dimension of the count matrix;
 * Which do you prefer - the R Matrix package or the seurat package (**Read10x** to get the expression matrix). How do you assign your matrix rownames: either by gene_id or gene_name? <br>
 
+```R
 library(Seurat)
 FCA123.data <- Read10X(data.dir = /opt/FCA123_cellout/outs/filtered_feature_bac_matrix/")
 
@@ -291,7 +292,7 @@ feature.names = read.delim(features.path, header = FALSE, stringsAsFactors = FAL
 barcode.names = read.delim(barcode.path, header = FALSE, stringAsFactors = FALSE)
 colnames(mat) = barcode.names$V1
 rownames(mat) = feature.names$V1
-
+```
 <IMG SRC="Screenshot/cellranger_Rmat.png" width=800px>
 
 
