@@ -280,10 +280,10 @@ You have two publications of 10x data from the same tissue, but using different 
 
 ```R
 library(Seurat)
-FCA123.data <- Read10X(data.dir = /opt/FCA123_cellout/outs/filtered_feature_bac_matrix/")
+FCA123.data <- Read10X(data.dir = /opt/FCA123_cellout/filtered_feature_bac_matrix/")
 
 library(Matrix)
-matrix_dir = "/opt/FCA123_cellout/outs/filtered_feature_bc_matrix/"
+matrix_dir = "/opt/FCA123_cellout/filtered_feature_bc_matrix/"
 barcode.path <- paste0(matrix_dir, "barcodes.tsv.gz")
 features.path <- paste0(matrix_dir, "features.tsv.gz")
 matrix.path <- paste0(matrix_dir, "matrix.mtx.gz")
