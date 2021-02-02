@@ -257,7 +257,7 @@ cellranger aggr --id=FCA123 \
 <IMG SRC="Screenshot/cellranger_3.png" width=800px>
 
 ### Exercise 2: Basic QC with web_summary.html files(Practical_day2/CellrangerReports) <br>
-[Examples Reports](Practical_day2/Cellranger_Reports)
+Look at the example reports in /Practical_day2/CellrangerReports on the VM
 
 General Question: which web_summary.html files are good? If they are not good, why is this? Please use the following Hints questions to check each report.
 
