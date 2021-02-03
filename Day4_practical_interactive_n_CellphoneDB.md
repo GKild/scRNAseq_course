@@ -81,7 +81,7 @@ These are the genes upregulated in healthy macrophages, thus they should be poss
  - Do they make sense? Repeat the same with top 20 genes. How consistent are the results?
 
 
-## Exercise 5: Perform receptor-ligand analysis via the CellPhoneDB tool https://www.cellphonedb.org/
+## Bonus (after the course) Exercise 5: Perform receptor-ligand analysis via the CellPhoneDB tool https://www.cellphonedb.org/
 The CellPhoneDB tool explores receptor and ligand expression in all the cell type pairs in your dataset. This let's you infer both cell signaling and biologicical function.
 For smaller datasets, the interactive tool allows for analysis online: https://www.cellphonedb.org/explore-sc-rna-seq
 The interactive tool is often busy, therefore we use a command line version in the practical. 
